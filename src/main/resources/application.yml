@@ -1,0 +1,14 @@
+#server:
+#  port: '8081'
+#spring:
+#  datasource:
+#    driver-class-name: com.mysql.jdbc.Driver
+#    username: root
+#    url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/db_example
+#    password: ''
+#  jpa:
+#    hibernate:
+#      ddl-auto: update
+#    show-sql: 'true'
+#welcome:
+#  message: check
