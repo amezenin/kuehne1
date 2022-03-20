@@ -5,8 +5,10 @@ import com.example.kuehne.entity.OrderFinale;
 import com.example.kuehne.entity.OrderLine;
 import com.example.kuehne.repository.OrderFinaleRepository;
 import com.example.kuehne.service.OrderFinaleService;
+import com.example.kuehne.specifications.OrderFinaleSpecification;
 import org.hibernate.engine.internal.JoinSequence;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.web.bind.annotation.*;
 
 import javax.persistence.EntityManager;
@@ -72,7 +74,13 @@ public class OrderFinaleController {
     @GetMapping("/orders/code/{code}")
     public List<OrderFinale> findAllByProductCode(@PathVariable("code") String code){
 
-        return orderFinaleService.findAllByProductCode(code);
+        //With Criteria
+        //return orderFinaleService.findAllByProductCode(code);
+
+        //With Specification
+        Specification<OrderFinale> specification = Specification.where(OrderFinaleSpecification.hasCode(code));
+
+        return orderFinaleRepository.findAll(specification);
 
     }
 

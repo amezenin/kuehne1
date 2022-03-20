@@ -1,10 +1,13 @@
 package com.example.kuehne.service;
 
 import com.example.kuehne.entity.OrderFinale;
+import com.example.kuehne.repository.OrderFinaleCustomRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 
 import java.util.List;
 
-public interface OrderFinaleService {
+public interface OrderFinaleService  {
     OrderFinale saveOrderFinale(OrderFinale orderFinale);
 
     List<OrderFinale> fetchOrderFinaleList();

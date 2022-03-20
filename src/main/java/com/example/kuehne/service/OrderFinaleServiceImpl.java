@@ -1,9 +1,6 @@
 package com.example.kuehne.service;
 
-import com.example.kuehne.entity.Customer;
-import com.example.kuehne.entity.OrderFinale;
-import com.example.kuehne.entity.OrderLine;
-import com.example.kuehne.entity.Product;
+import com.example.kuehne.entity.*;
 import com.example.kuehne.repository.OrderFinaleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -71,6 +68,7 @@ public class OrderFinaleServiceImpl implements OrderFinaleService {
     public List<OrderFinale> findAllByProductCode(String code) {
 
         return orderFinaleRepository.findAllByProductCode(code);
+
 
     }
 
