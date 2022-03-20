@@ -12,7 +12,8 @@ import java.util.Date;
 import java.util.List;
 
 @Repository
-public interface OrderFinaleRepository extends JpaRepository<OrderFinale, Long>{
+public interface OrderFinaleRepository extends JpaRepository<OrderFinale, Long> ,OrderFinaleCustomRepository,
+        JpaSpecificationExecutor<OrderFinale>{
 
     //tested with Unit Test
     List<OrderFinale> findAllByCreateDate(LocalDate createDate);
@@ -25,6 +26,10 @@ public interface OrderFinaleRepository extends JpaRepository<OrderFinale, Long>{
 
     @Query("SELECT u FROM OrderFinale u JOIN u.orderLines p WHERE p.product.name = :name")
     List<OrderFinale> findAllByProductName (String name);
+
+    List<OrderFinale> findAllByProductCode (String code);
+
+
 
 
 }

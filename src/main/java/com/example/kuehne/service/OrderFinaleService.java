@@ -19,4 +19,8 @@ public interface OrderFinaleService {
 
     public List<OrderFinale> findAllByProductName (String name);
 
+    List<OrderFinale> findAllByProductCode (String code);
+
+
+
 }

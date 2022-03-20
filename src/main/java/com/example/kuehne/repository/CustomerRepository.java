@@ -1,6 +1,7 @@
 package com.example.kuehne.repository;
 
 import com.example.kuehne.entity.Customer;
+import com.example.kuehne.entity.OrderFinale;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.stereotype.Repository;

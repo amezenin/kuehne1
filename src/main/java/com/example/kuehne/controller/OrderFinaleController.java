@@ -2,15 +2,25 @@ package com.example.kuehne.controller;
 
 import com.example.kuehne.entity.Customer;
 import com.example.kuehne.entity.OrderFinale;
+import com.example.kuehne.entity.OrderLine;
 import com.example.kuehne.repository.OrderFinaleRepository;
 import com.example.kuehne.service.OrderFinaleService;
+import org.hibernate.engine.internal.JoinSequence;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.persistence.EntityManager;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Join;
+import javax.persistence.criteria.Root;
 import java.util.List;
 
 @RestController
 public class OrderFinaleController {
+
+    @Autowired
+    private OrderFinaleRepository orderFinaleRepository;
 
     @Autowired
     private OrderFinaleService orderFinaleService;
@@ -56,6 +66,13 @@ public class OrderFinaleController {
     public List<OrderFinale> findAllByProductName(@PathVariable("name") String name){
 
         return orderFinaleService.findAllByProductName(name);
+
+    }
+
+    @GetMapping("/orders/code/{code}")
+    public List<OrderFinale> findAllByProductCode(@PathVariable("code") String code){
+
+        return orderFinaleService.findAllByProductCode(code);
 
     }
 
